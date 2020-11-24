@@ -1,0 +1,26 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en">
+<head th:replace="fragments/head" />
+<body>
+	<nav th:replace="fragments/nav" />
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+				<img th:src="${movie.coverPath}" th:alt="${movie.title}" />
+			</div>
+			<div class="col-8">
+				<div class="row">
+					<h5 class="card-title" th:text="${movie.title}">Title</h5>
+					<p class="card-text" th:text="${'Plot: ' + movie.plot}">Plot</p>
+					<p class="card-text" th:text="${'Actors: ' + movie.actors}">Actors</p>
+					<p class="card-text" th:text="${'Director: ' + movie.directors}">Directores</p>
+					<p class="card-text" th:text="${'Year: ' + movie.year}">Year</p>
+					<p>
+						<a th:href="${'/movie/watched/' + movie.id}" th:text="${movie.watched} ? 'Watched' : 'No watched'"></a>
+					</p>
+				</div>				
+			</div>
+		</div>
+	</div>	
+</body>
+</html>
